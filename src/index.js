@@ -13,14 +13,14 @@ const getIssueCloseMessage = () => {
 
   const { payload } = github.context;
 
-  const message =  Function(
+  const builtMessage =  Function(
     ...Object.keys(payload),
     `return \`${message}\``
   )(...Object.values(payload));
   
-  console.log('Will write comment:', JSON.stringify(message));
+  console.log('Will write comment:', JSON.stringify(builtMessage));
   
-  return message
+  return builtMessage
 };
 
 (async () => {
