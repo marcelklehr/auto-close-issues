@@ -9848,7 +9848,7 @@ const getIssueCloseMessage = () => {
     const templateTitles = Object.keys(mdjson(templateMarkdown));
     console.log({template, templateMarkdown, templateTitles})
 
-    return templateTitles.every(title => issueBodyTitles.includes(title));
+    return templateTitles.filter(title => issueBodyTitles.includes(title)).length >= 3;
   });
   
   console.log({doesIssueMatchAnyTemplate})
